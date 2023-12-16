@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Add Bootstrap CSS CDN link here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <title>Create an Account</title>
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- Custom Styles here -->
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      max-width: 400px;
+      border-radius: 15px;
+    }
+
+    /* Form Border */
+    .form-control {
+      width: 94%;
+      padding: 0px;
+      border: none;
+      margin-left: 3%;
+      border-radius: 0px;
+      border-bottom: solid #a0a0a0 2px;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+      border-bottom: solid #0f71f0 2px;
+    }
+
+    .form-check-input:focus {
+      box-shadow: none !important;
+    }
+
+    /* Question Mark Hoverchanges */
+    .demo:hover {
+      color: #ffcc00;
+    }
+
+    /*Submit Button  */
+    .submit:hover {
+      background-color: #fff488 !important;
+    }
+
+    .form-floating>.form-control {
+      padding: 0;
+    }
+
+    /* Form Label Color Changes */
+    .form-floating .form-control:focus+.form-label-clicked,
+    .form-floating .form-control:not(:placeholder-shown)+.form-label-clicked {
+      color: #0f71f0;
+    }
+
+    /* Form Circle Section */
+    .form-check-section {
+      border-radius: 5px;
+      transition: border-color 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .form-check-section.active {
+      border-radius: 5px;
+      border-color: black;
+    }
+
+    .form-check-input:checked {
+      background-color: #242e39;
+    }
+
+    @media screen and (max-width: 450px) {
+      body {
+        padding: 0px 30px;
+      }
+    }
+  </style>
+  </style>
+</head>
+
+<body class="d-flex align-items-center" style="background-color:#f4f1ed;">
+  <div class="container shadow-lg p-3 mb-5 bg-white form-container">
+    <form>
+      <h2 style="text-align:center; font-size:28px; line-height:40px; font-weight:800; font-family:inter; ">Create
+        an Account</h2>
+      <div class="form-floating mb-3" id="formContainer1">
+        <input type="email" class="form-control email" id="exampleInputConfirmEmail1" aria-describedby="emailHelp"
+          placeholder="Confirm email address *" oninput="handleEmail()">
+        <label class="form-label-clicked" for="exampleInputConfirmEmail1">Email address *</label>
+        <div class="tooltip-container"
+          style="position: absolute; top: 50%; right: 10px; cursor: pointer; transform: translateY(-50%);">
+          <i class="fa fa-question-circle demo" data-bs-toggle="tooltip" data-bs-placement="right"
+            title="Enter your email address"></i>
+        </div>
+      </div>
+      <div class="form-floating mb-3" id="formContainer2">
+        <input type="email" class="form-control reemail" id="exampleInputConfirmEmail1" aria-describedby="emailHelp"
+          placeholder="Confirm email address *" oninput="handleReEmail()">
+        <label class="form-label-clicked" for="exampleInputConfirmEmail1">Confirm email address *</label>
+      </div>
+      <div class="form-floating mb-4" id="formContainer3" style="position:relative;">
+        <input type="password" class="form-control password" id="floatingPassword" placeholder="Password"
+          oninput="handlePassword()">
+        <label for="floatingPassword" class="form-label-clicked" for="exampleInputConfirmEmail1">Create a secure
+          password</label>
+        <i class="fa fa-eye toggle-password" onclick="togglePassword()" style="position:absolute; top:50%; right: 10px; cursor: pointer;
+        transform: translateY(-50%);"></i>
+      </div>
+      <label class="form-label ms-2">Region</label>
+      <select class="form-control" data-target=".selBox" role="listbox" aria-labelledby="lbl_country" id="country"
+        name="country" onchange="handleSelect()">
+        <option value="US" role="option">United States</option>
+        <option value="AF" role="option">Afghanistan</option>
+        <option value="AX" role="option">Åland Islands</option>
+        <option value="AL" role="option">Albania</option>
+        <option value="DZ" role="option">Algeria</option>
+        <option value="AS" role="option">American Samoa</option>
+        <option value="AD" role="option">Andorra</option>
+        <option value="AO" role="option">Angola</option>
+        <option value="AI" role="option">Anguilla</option>
+        <option value="AQ" role="option">Antarctica</option>
+        <option value="AG" role="option">Antigua And Barbuda</option>
+        <option value="AR" role="option">Argentina</option>
+        <option value="AM" role="option">Armenia</option>
+        <option value="AW" role="option">Aruba</option>
+        <option value="AU" role="option">Australia</option>
+        <option value="AT" role="option">Austria</option>
+        <option value="AZ" role="option">Azerbaijan</option>
+        <option value="BS" role="option">Bahamas</option>
+        <option value="BH" role="option">Bahrain</option>
+        <option value="BD" role="option">Bangladesh</option>
+        <option value="BB" role="option">Barbados</option>
+        <option value="BY" role="option">Belarus</option>
+        <option value="BE" role="option">Belgium</option>
+        <option value="BZ" role="option">Belize</option>
+        <option value="BJ" role="option">Benin</option>
+        <option value="BM" role="option">Bermuda</option>
+        <option value="BT" role="option">Bhutan</option>
+        <option value="BO" role="option">Bolivia</option>
+        <option value="BQ" role="option">Bonaire, Sint Eustatius and Saba</option>
+        <option value="BA" role="option">Bosnia And Herzegovina</option>
+        <option value="BW" role="option">Botswana</option>
+        <option value="BV" role="option">Bouvet Island</option>
+        <option value="BR" role="option">Brazil</option>
+        <option value="IO" role="option">British Indian Ocean Territory</option>
+        <option value="BN" role="option">Brunei Darussalam</option>
+        <option value="BG" role="option">Bulgaria</option>
+        <option value="BF" role="option">Burkina Faso</option>
+        <option value="BI" role="option">Burundi</option>
+        <option value="KH" role="option">Cambodia</option>
+        <option value="CM" role="option">Cameroon</option>
+        <option value="CA" role="option">Canada</option>
+        <option value="CV" role="option">Cape Verde</option>
+        <option value="KY" role="option">Cayman Islands</option>
+        <option value="CF" role="option">Central African Republic</option>
+        <option value="TD" role="option">Chad</option>
+        <option value="CL" role="option">Chile</option>
+        <option value="CN" role="option">China Mainland</option>
+        <option value="CX" role="option">Christmas Island</option>
+        <option value="CC" role="option">Cocos (Keeling) Islands</option>
+        <option value="CO" role="option">Colombia</option>
+        <option value="KM" role="option">Comoros</option>
+        <option value="CG" role="option">Congo</option>
+        <option value="CD" role="option">Congo, The Democratic Republic Of The</option>
+        <option value="CK" role="option">Cook Islands</option>
+        <option value="CR" role="option">Costa Rica</option>
+        <option value="CI" role="option">Cote D'ivoire</option>
+        <option value="HR" role="option">Croatia</option>
+        <option value="CW" role="option">Curacao</option>
+        <option value="CY" role="option">Cyprus</option>
+        <option value="CZ" role="option">Czech Republic</option>
+        <option value="DK" role="option">Denmark</option>
+        <option value="DJ" role="option">Djibouti</option>
+        <option value="DM" role="option">Dominica</option>
+        <option value="DO" role="option">Dominican Republic</option>
+        <option value="EC" role="option">Ecuador</option>
+        <option value="EG" role="option">Egypt</option>
+        <option value="SV" role="option">El Salvador</option>
+        <option value="GQ" role="option">Equatorial Guinea</option>
+        <option value="ER" role="option">Eritrea</option>
+        <option value="EE" role="option">Estonia</option>
+        <option value="ET" role="option">Ethiopia</option>
+        <option value="FK" role="option">Falkland Islands (Malvinas)</option>
+        <option value="FO" role="option">Faroe Islands</option>
+        <option value="FJ" role="option">Fiji</option>
+        <option value="FI" role="option">Finland</option>
+        <option value="FR" role="option">France</option>
+        <option value="GF" role="option">French Guiana</option>
+        <option value="PF" role="option">French Polynesia</option>
+        <option value="TF" role="option">French Southern Territories</option>
+        <option value="GA" role="option">Gabon</option>
+        <option value="GM" role="option">Gambia</option>
+        <option value="GE" role="option">Georgia</option>
+        <option value="DE" role="option">Germany</option>
+        <option value="GH" role="option">Ghana</option>
+        <option value="GI" role="option">Gibraltar</option>
+        <option value="GR" role="option">Greece</option>
+        <option value="GL" role="option">Greenland</option>
+        <option value="GD" role="option">Grenada</option>
+        <option value="GP" role="option">Guadeloupe</option>
+        <option value="GU" role="option">Guam</option>
+        <option value="GT" role="option">Guatemala</option>
+        <option value="GG" role="option">Guernsey</option>
+        <option value="GN" role="option">Guinea</option>
+        <option value="GW" role="option">Guinea-Bissau</option>
+        <option value="GY" role="option">Guyana</option>
+        <option value="HT" role="option">Haiti</option>
+        <option value="HM" role="option">Heard Island And Mcdonald Islands</option>
+        <option value="VA" role="option">Holy See (Vatican City State)</option>
+        <option value="HN" role="option">Honduras</option>
+        <option value="HK" role="option">Hong Kong</option>
+        <option value="HU" role="option">Hungary</option>
+        <option value="IS" role="option">Iceland</option>
+        <option value="IN" role="option">India</option>
+        <option value="ID" role="option">Indonesia</option>
+        <option value="IQ" role="option">Iraq</option>
+        <option value="IE" role="option">Ireland</option>
+        <option value="IM" role="option">Isle of Man</option>
+        <option value="IL" role="option">Israel</option>
+        <option value="IT" role="option">Italy</option>
+        <option value="JM" role="option">Jamaica</option>
+        <option value="JP" role="option">Japan</option>
+        <option value="JE" role="option">Jersey</option>
+        <option value="JO" role="option">Jordan</option>
+        <option value="KZ" role="option">Kazakhstan</option>
+        <option value="KE" role="option">Kenya</option>
+        <option value="KI" role="option">Kiribati</option>
+        <option value="KR" role="option">Korea, Republic Of</option>
+        <option value="KW" role="option">Kuwait</option>
+        <option value="KG" role="option">Kyrgyzstan</option>
+        <option value="LA" role="option">Lao People's Democratic Republic</option>
+        <option value="LV" role="option">Latvia</option>
+        <option value="LB" role="option">Lebanon</option>
+        <option value="LS" role="option">Lesotho</option>
+        <option value="LR" role="option">Liberia</option>
+        <option value="LY" role="option">Libya</option>
+        <option value="LI" role="option">Liechtenstein</option>
+        <option value="LT" role="option">Lithuania</option>
+        <option value="LU" role="option">Luxembourg</option>
+        <option value="MO" role="option">Macao</option>
+        <option value="MK" role="option">Macedonia, The Former Yugoslav Republic</option>
+        <option value="MG" role="option">Madagascar</option>
+        <option value="MW" role="option">Malawi</option>
+        <option value="MY" role="option">Malaysia</option>
+        <option value="MV" role="option">Maldives</option>
+        <option value="ML" role="option">Mali</option>
+        <option value="MT" role="option">Malta</option>
+        <option value="MH" role="option">Marshall Islands</option>
+        <option value="MQ" role="option">Martinique</option>
+        <option value="MR" role="option">Mauritania</option>
+        <option value="MU" role="option">Mauritius</option>
+        <option value="YT" role="option">Mayotte</option>
+        <option value="MX" role="option">Mexico</option>
+        <option value="FM" role="option">Micronesia, Federated States Of</option>
+        <option value="MD" role="option">Moldova, Republic Of</option>
+        <option value="MC" role="option">Monaco</option>
+        <option value="MN" role="option">Mongolia</option>
+        <option value="ME" role="option">Montenegro</option>
+        <option value="MS" role="option">Montserrat</option>
+        <option value="MA" role="option">Morocco</option>
+        <option value="MZ" role="option">Mozambique</option>
+        <option value="MM" role="option">Myanmar</option>
+        <option value="NA" role="option">Namibia</option>
+        <option value="NR" role="option">Nauru</option>
+        <option value="NP" role="option">Nepal</option>
+        <option value="NL" role="option">Netherlands</option>
+        <option value="NC" role="option">New Caledonia</option>
+        <option value="NZ" role="option">New Zealand</option>
+        <option value="NI" role="option">Nicaragua</option>
+        <option value="NE" role="option">Niger</option>
+        <option value="NG" role="option">Nigeria</option>
+        <option value="NU" role="option">Niue</option>
+        <option value="NF" role="option">Norfolk Island</option>
+        <option value="MP" role="option">Northern Mariana Islands</option>
+        <option value="NO" role="option">Norway</option>
+        <option value="OM" role="option">Oman</option>
+        <option value="PK" role="option">Pakistan</option>
+        <option value="PW" role="option">Palau</option>
+        <option value="PS" role="option">Palestinian Territory</option>
+        <option value="PA" role="option">Panama</option>
+        <option value="PG" role="option">Papua New Guinea</option>
+        <option value="PY" role="option">Paraguay</option>
+        <option value="PE" role="option">Peru</option>
+        <option value="PH" role="option">Philippines</option>
+        <option value="PN" role="option">Pitcairn</option>
+        <option value="PL" role="option">Poland</option>
+        <option value="PT" role="option">Portugal</option>
+        <option value="PR" role="option">Puerto Rico</option>
+        <option value="QA" role="option">Qatar</option>
+        <option value="RE" role="option">Reunion</option>
+        <option value="RO" role="option">Romania</option>
+        <option value="RU" role="option">Russian Federation</option>
+        <option value="RW" role="option">Rwanda</option>
+        <option value="BL" role="option">Saint Barthelemy</option>
+        <option value="SH" role="option">Saint Helena</option>
+        <option value="KN" role="option">Saint Kitts And Nevis</option>
+        <option value="LC" role="option">Saint Lucia</option>
+        <option value="MF" role="option">Saint Martin</option>
+        <option value="PM" role="option">Saint Pierre And Miquelon</option>
+        <option value="VC" role="option">Saint Vincent And The Grenadines</option>
+        <option value="WS" role="option">Samoa</option>
+        <option value="SM" role="option">San Marino</option>
+        <option value="ST" role="option">Sao Tome And Principe</option>
+        <option value="SA" role="option">Saudi Arabia</option>
+        <option value="SN" role="option">Senegal</option>
+        <option value="RS" role="option">Serbia</option>
+        <option value="SC" role="option">Seychelles</option>
+        <option value="SL" role="option">Sierra Leone</option>
+        <option value="SG" role="option">Singapore</option>
+        <option value="SX" role="option">Sint Maarten (Dutch part)</option>
+        <option value="SK" role="option">Slovakia</option>
+        <option value="SI" role="option">Slovenia</option>
+        <option value="SB" role="option">Solomon Islands</option>
+        <option value="SO" role="option">Somalia</option>
+        <option value="ZA" role="option">South Africa</option>
+        <option value="GS" role="option">South Georgia/SGSSI</option>
+        <option value="ES" role="option">Spain</option>
+        <option value="LK" role="option">Sri Lanka</option>
+        <option value="SD" role="option">Sudan</option>
+        <option value="SR" role="option">Suriname</option>
+        <option value="SJ" role="option">Svalbard And Jan Mayen</option>
+        <option value="SZ" role="option">Swaziland</option>
+        <option value="SE" role="option">Sweden</option>
+        <option value="CH" role="option">Switzerland</option>
+        <option value="TW" role="option">Taiwan</option>
+        <option value="TJ" role="option">Tajikistan</option>
+        <option value="TZ" role="option">Tanzania, United Republic Of</option>
+        <option value="TH" role="option">Thailand</option>
+        <option value="TL" role="option">Timor-Leste</option>
+        <option value="TG" role="option">Togo</option>
+        <option value="TK" role="option">Tokelau</option>
+        <option value="TO" role="option">Tonga</option>
+        <option value="TT" role="option">Trinidad And Tobago</option>
+        <option value="TN" role="option">Tunisia</option>
+        <option value="TR" role="option">Türkiye</option>
+        <option value="TM" role="option">Turkmenistan</option>
+        <option value="TC" role="option">Turks And Caicos Islands</option>
+        <option value="TV" role="option">Tuvalu</option>
+        <option value="UG" role="option">Uganda</option>
+        <option value="UA" role="option">Ukraine</option>
+        <option value="AE" role="option">United Arab Emirates</option>
+        <option value="GB" role="option">United Kingdom</option>
+        <option value="UM" role="option">United States Minor Outlying Islands</option>
+        <option value="UY" role="option">Uruguay</option>
+        <option value="UZ" role="option">Uzbekistan</option>
+        <option value="VU" role="option">Vanuatu</option>
+        <option value="VE" role="option">Venezuela</option>
+        <option value="VN" role="option">Vietnam</option>
+        <option value="VG" role="option">Virgin Islands, British</option>
+        <option value="VI" role="option">Virgin Islands, U.S.</option>
+        <option value="WF" role="option">Wallis And Futuna</option>
+        <option value="EH" role="option">Western Sahara</option>
+        <option value="YE" role="option">Yemen</option>
+        <option value="ZM" role="option">Zambia</option>
+        <option value="ZW" role="option">Zimbabwe</option>
+      </select>
+      <div class="form-check mb-2 mr-sm-2 mt-4 form-check-section" id="checkboxSection">
+        <input class="form-check-input rounded-circle" type="checkbox" id="inlineFormCheck" style="margin-top: 15px;"
+          onchange="handleTick()">
+        <label class="form-check-label" for="inlineFormCheck">
+          Email me product updates, offers, and security newsletters
+        </label>
+      </div>
+      <button type="button" class="btn mt-3 submit btn-block button" disabled style="border-radius:50px; border:solid 2px black; background-color: #feeb29; width: 100%; font-weight:800;
+        font-size: 16px" onclick="handleSubmit()" id="submitButton">Create
+        Account</button>
+    </form>
+  </div>
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Email Question Mark To Show Message -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var tooltipTrigger = document.querySelector('.fa-question-circle');
+      var tooltipInstance = new bootstrap.Tooltip(tooltipTrigger, {
+        trigger: 'hover', // Show tooltip on hover
+        placement: 'bottom',
+        html: true
+      });
+    });
+  </script>
+
+  <!-- Password Eye Icon Show -->
+  <script>
+    function togglePassword() {
+      var passwordInput = document.getElementById('floatingPassword');
+      var icon = document.querySelector('.toggle-password');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+  </script>
+
+  <!-- Check Box Ke Liye Border -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var checkboxSection = document.getElementById('checkboxSection');
+      var checkboxInput = checkboxSection.querySelector('.form-check-input');
+
+      checkboxInput.addEventListener('change', function () {
+        checkboxSection.classList.toggle('active', checkboxInput.checked);
+      });
+    });
+  </script>
+
+
+  <script>
+    let formData = {
+      email: "",
+      reemail: "",
+      password: "",
+      region: "",
+      tickvalue: ""
+    }
+    function handleEmail() {
+      let a = document.getElementsByClassName("email")
+      formData.email = a[0].value
+      makedisable()
+    }
+    function handleReEmail() {
+      let a = document.getElementsByClassName("reemail")
+      formData.reemail = a[0].value
+      makedisable()
+    }
+    function handlePassword() {
+      let a = document.getElementsByClassName("password")
+      formData.password = a[0].value
+      makedisable()
+    }
+
+    function handleSelect() {
+      let country = document.getElementById("country")
+      formData.region = country.value
+    }
+
+    function handleTick() {
+      let checkboxElement = document.getElementsByClassName("rounded-circle")
+      formData.tickvalue = checkboxElement[0].checked
+    }
+
+    function handleSubmit() {
+      let email = document.getElementsByClassName("email")
+      console.log(formData)
+
+    }
+
+    function makedisable() {
+      if (formData.email !== "" && formData.reemail !== "" && formData.password !== "") {
+        let submitButton = document.getElementById('submitButton');
+        submitButton.removeAttribute('disabled');
+      }
+      else {
+        submitButton.setAttribute('disabled', 'true')
+      }
+    }
+
+
+  </script>
+
+
+
+  <!-- Bootstrap Link JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
